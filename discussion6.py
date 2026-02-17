@@ -114,6 +114,12 @@ class HorseRaces:
 ###############################################################################
 
     def get_average_time(self):
+        averages = {}
+        for horse, races in self.race_dict.items():
+            times = races.values()
+            avg_time = sum(times) / len(times)
+            averages[horse] = avg_time
+        return averages
         '''
         Calculate the average race time for each horse.
 
@@ -121,8 +127,6 @@ class HorseRaces:
             A dictionary with each horse and their average time.
             EXAMPLE: {'Gold Ship': 16.5, 'Daiwa Scarlet': 17.2}
         '''
-        pass
-
 ###############################################################################
 ##### DO NOT MODIFY THE UNIT TESTS BELOW!
 ###############################################################################
