@@ -39,6 +39,16 @@ class HorseRaces:
 ##### TASK 1
 ###############################################################################
     def load_results(self, table):
+        results = {}
+        header = table[0][1:]
+        for row in table[1:]:
+            horse = row[0]
+            race_times = row[1:]
+            inner_dict = {}
+            for race_name, time_str in zip(header, race_times):
+                inner_dict[race_name] = float(time_str)
+            results[horse] = inner_dict
+        return results
         '''
         Given the processed CSV (as a list of lists), populate a nested dictionary with the horse information.
 
@@ -57,7 +67,7 @@ class HorseRaces:
             inner keys are (str) races, inner values are (int) race times
             EXAMPLE: {'Special Week': {'Tenno Sho Fall': 16.5, 'Tenno Sho Spring': 16.3, 'Teio Sho': 17.0}}
         '''
-        pass
+        
 
 ###############################################################################
 ##### TASK 2
