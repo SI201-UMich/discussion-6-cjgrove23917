@@ -74,6 +74,12 @@ class HorseRaces:
 ###############################################################################
 
     def horse_fastest_race(self, horse):
+        if horse not in self.race_dict:
+            return (None, 999.9)
+        races = self.race_dict[horse]
+        fastest_race = min(races, key=races.get)
+        fastest_time = races[fastest_race]
+        return (fastest_race, fastest_time)
         '''
         Given the name of a horse, return its fastest race and time.
         If the horse does not exist, return (None, 999.9)
@@ -85,8 +91,6 @@ class HorseRaces:
             tuple of fastest race name and the time
             EXAMPLE: ('Teio Sho', 14.8)
         '''
-        pass
-
 ###############################################################################
 ##### TASK 3
 ###############################################################################
